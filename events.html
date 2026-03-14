@@ -23,7 +23,53 @@
     </header>
     
     <main>
-        <p>This is a basic HTML template with meta tags, a header, and a body section.</p>
+        <div id="app" class="container">
+            <div class="d-flex flex-wrap align-items-center mb-3">
+                <div class="d-flex align-items-center me-3 mb-2">
+                    <label for="eID" class="me-2">Event ID</label>
+                    <input type="text" id="eID" v-model="eventObj.eID" class="form-control" style="width: 150px;"/>
+                </div>
+                <div class="d-flex align-items-center me-3 mb-2">
+                    <label for="eName" class="me-2">Event Name</label>
+                    <input type="text" id="eName" v-model="eventObj.eName" class="form-control" style="width: 200px;"/>
+                </div>
+                <div class="d-flex align-items-center mb-2">
+                    <label for="eDur" class="me-2">Duration</label>
+                    <input type="text" id="eDur" v-model="eventObj.eDur" class="form-control" style="width: 150px;"/>
+                </div>
+            </div>
+            <div>
+                <label>Category</label><br>
+                <input type="radio" id="business" v-model="eventObj.category" value="business">
+                <label for="business">Business</label><br>
+                <input type="radio" id="technology" v-model="eventObj.category" value="technology">
+                <label for="technology">Technology</label><br>
+                <input type="radio" id="finance" v-model="eventObj.category" value="finance">
+                <label for="finance">Finance</label><br>
+                <input type="radio" id="marketing" v-model="eventObj.category" value="marketing">
+                <label for="marketing">Marketing</label><br>
+                <input type="radio" id="all" v-model="eventObj.category" value="all">
+                <label for="all">All</label><br>
+            </div>
+            <div class="row">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <tr>
+                            <th>Event ID</th>
+                            <th>Event Name</th>
+                            <th>Event Category</th>
+                            <th>Duration Hour</th>
+                        </tr>
+                        <tr v-for="m in filterMarks">
+                            <td>{{m.eID}}</td>
+                            <td>{{m.eName}}</td>
+                            <td>{{m.category}}</td>
+                            <td>{{m.eDur}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
     </main>
     
     <footer>
