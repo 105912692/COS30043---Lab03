@@ -19,3 +19,8 @@ main {
     flex: 1;
     padding: 1rem;
 }
+
+option {
+    background-color: black;
+    color: pink;
+}
