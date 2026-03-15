@@ -5,14 +5,22 @@ Vue.createApp({
                 eID: "",
                 eName: "",
                 eDur: "",
-                category: "All"
+                category: "All",
+                selectedEvent: ""
             },
             events: []
         };
     },
 
     computed: {
-        // add code here
+        eventNames: function () {
+            var self = this;
+
+            return self.events.filter(function (eventItem) {
+                return self.eventObj.category === "All" || eventItem.category === self.eventObj.category;
+            });
+            
+        }
     },
 
     methods: {
